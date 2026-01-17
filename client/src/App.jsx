@@ -4,6 +4,7 @@ import Dashboard from './pages/Dashboard';
 import Availability from './pages/Availability';
 import BookingPage from './pages/BookingPage';
 import Success from './pages/Success';
+import Bookings from './pages/Bookings';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           {/* Admin Routes */}
           <Route path="/" element={<Dashboard />} />
           <Route path="/availability" element={<Availability />} />
+          <Route path="/bookings" element={<Bookings />}/>
           
           {/* Public Routes */}
           <Route path="/:user/:slug" element={<BookingPage />} /> {/* e.g. /admin/15min */}

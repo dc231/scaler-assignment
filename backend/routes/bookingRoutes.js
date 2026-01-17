@@ -5,4 +5,7 @@ const { getAvailableSlots, createBooking } = require('../controllers/bookingCont
 router.get('/slots', getAvailableSlots);
 router.post('/', createBooking);
 
+router.get('/', getBookings);
+router.delete('/:id', deleteBooking);
+
 module.exports = router;

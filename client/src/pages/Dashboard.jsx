@@ -60,6 +60,9 @@ const Dashboard = () => {
             <p className="text-slate-500 mt-1">Create events for people to book.</p>
         </div>
         <div className="flex gap-4">
+            <Link to="/bookings" className="px-4 py-2 text-slate-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 font-medium transition">
+                 Bookings
+            </Link>
             <Link to="/availability" className="px-4 py-2 text-slate-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 font-medium transition">
                 Availability
             </Link>

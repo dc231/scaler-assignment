@@ -112,3 +112,31 @@ exports.createBooking = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// @desc    Get all bookings (Admin)
+// @route   GET /api/bookings
+exports.getBookings = async (req, res) => {
+  try {
+    const query = `
+      SELECT b.id, b.booker_name, b.booker_email, b.start_time, b.duration, t.title as event_title
+      FROM bookings b
+      JOIN event_types t ON b.event_type_id = t.id
+      ORDER BY b.start_time DESC
+    `;
+    const [rows] = await db.query(query);
+    res.json(rows);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Cancel a booking
+// @route   DELETE /api/bookings/:id
+exports.deleteBooking = async (req, res) => {
+  try {
+    await db.query('DELETE FROM bookings WHERE id = ?', [req.params.id]);
+    res.json({ message: 'Booking cancelled' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
