@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const db = require('./config/db');
 const eventRoutes = require('./routes/eventRoutes');
 const availabilityRoutes = require('./routes/availabilityRoutes');
+const bookingRoutes = require('./routes/bookingRoutes');
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.use(express.json());
 // Routes
 app.use('/api/event-types', eventRoutes);
 app.use('/api/availability', availabilityRoutes);
+app.use('/api/bookings', bookingRoutes);
 
 // Test Route
 app.get('/', (req, res) => {
